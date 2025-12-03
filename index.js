@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
-  res.json({ status: 'OK' });
+  res.sendStatus(200);  // sends 200 OK with no body
 });
 
 // Start the server
