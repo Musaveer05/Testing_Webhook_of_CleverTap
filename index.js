@@ -1,4 +1,3 @@
-const clevertap = require('clevertap-web-sdk');
 const express = require('express');
 const app = express();
 const port = process.env.port;
