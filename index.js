@@ -1,3 +1,4 @@
+const clevertap = require('clevertap-web-sdk');
 const express = require('express');
 const app = express();
 const port = process.env.port;
@@ -5,6 +6,8 @@ const port = process.env.port;
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(express.static('public'));
+
+// clevertap.init('TEST-98R-65Z-6K7Z', 'eu1') // Replace with values applicable to you
 
 
 // Sample route
