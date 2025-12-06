@@ -4,10 +4,12 @@ const port = process.env.port;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(express.static('public'));
+
 
 // Sample route
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.sendFile(__dirname + '/public/index.html');
 });
 
 app.get('/status', (req, res) => {
