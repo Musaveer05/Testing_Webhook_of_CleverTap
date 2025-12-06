@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.URL || 3000;
+const port = process.env.port;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
-  res.json({ status: 'OK' });
+  res.status(200).end();
 });
 
 // Start the server
