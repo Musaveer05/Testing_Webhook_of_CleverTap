@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.port || 3000;
-import fetch from "node-fetch";
+const fetch = require("node-fetch");
 
 
 // Middleware to parse JSON bodies
