@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = process.env.port || 3000;
+import fetch from "node-fetch";
+
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -17,6 +19,24 @@ app.get('/', (req, res) => {
 app.get('/status', (req, res) => {
   res.status(200).end();
 });
+
+app.post("/send-event", async (req, res) => {
+  const payload = req.body;
+
+  const response = await fetch("https://eu1.api.clevertap.com/1/upload", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CleverTap-Account-Id": "TEST-8WW-745-K67Z",
+      "X-CleverTap-Passcode": "SCW-BAZ-GEEL",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json();
+  res.json(data);
+});
+
 
 // Start the server
 app.listen(port, () => {

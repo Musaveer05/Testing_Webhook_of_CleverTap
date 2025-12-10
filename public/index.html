@@ -82,33 +82,21 @@
           const payload = {
             d: [
               {
-                identity: "testxyz_4",
+                identity: "testxyz4",
                 type: "event",
                 evtName: "test_event_01",
                 evtData: {
-                  date: "$D_1765350000",
+                  date: "$D_1765350900",
                 },
               },
             ],
           };
 
-          fetch("https://eu1.api.clevertap.com/1/upload", {
+          fetch("/send-event", {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json; charset=utf-8",
-              "X-CleverTap-Account-Id": "TEST-8WW-745-K67Z",
-              "X-CleverTap-Passcode": "SCW-BAZ-GEEL",
-            },
             body: JSON.stringify(payload),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              console.log("Response from CleverTap:", data);
-              alert("Event Sent! Check console for response.");
-            })
-            .catch((err) => {
-              console.error("Error:", err);
-            });
+            headers: { "Content-Type": "application/json" },
+          });
         });
     </script>
   </body>
