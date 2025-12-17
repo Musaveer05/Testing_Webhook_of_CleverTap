@@ -43,8 +43,9 @@
       };
       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
       clevertap.account.push({ id: "TEST-8WW-745-K67Z" }, "eu1");
+      console.log("no region specified sets it to default europe region");
       clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
-      clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
+      clevertap.privacy.push({ useIP: true }); //set the flag to true, if the user agrees to share their IP data
       (function () {
         var wzrk = document.createElement("script");
         wzrk.type = "text/javascript";
@@ -52,7 +53,7 @@
         wzrk.src =
           ("https:" == document.location.protocol
             ? "https://d2r1yp2w7bby2u.cloudfront.net"
-            : "http://static.clevertap.com") + "/js/a.js";
+            : "http://static.clevertap.com") + "/js/clevertap.min.js";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(wzrk, s);
       })();
@@ -72,7 +73,7 @@
       clevertap.onUserLogin.push({
         Site: {
           Name: "Musaveer",
-          Identity: testxyz4,
+          Identity: testxyz12,
         },
       });
 
@@ -89,7 +90,7 @@
           const payload = {
             d: [
               {
-                identity: "testxyz4",
+                identity: "testxyz12",
                 type: "event",
                 evtName: "test_event_01",
                 evtData: {
