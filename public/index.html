@@ -70,42 +70,53 @@
 
     <script>
       // Fire Store_Page event on button click
-      clevertap.onUserLogin.push({
-        Site: {
-          Name: "Musaveer",
-          Identity: testxyz12,
-        },
-      });
-
-      document
-        .getElementById("storePage")
-        .addEventListener("click", function () {
-          clevertap.event.push("Store_Page");
-          console.log("Store_Page event fired");
+      window.onload = function () {
+        clevertap.onUserLogin.push({
+          Site: {
+            Name: "Musaveer",
+            Identity: "testxyz12",
+          },
         });
 
-      document
-        .getElementById("event_01")
-        .addEventListener("click", function () {
-          const payload = {
-            d: [
-              {
-                identity: "testxyz12",
-                type: "event",
-                evtName: "test_event_01",
-                evtData: {
-                  date: "$D_1765354800",
-                },
-              },
-            ],
-          };
+        // document
+        //   .getElementById("event_01")
+        //   .addEventListener("click", function () {
+        //     clevertap.event.push("test_event_01", {
+        //       date: new Date(),
+        //     });
+        //   });
 
-          fetch("/send-event", {
-            method: "POST",
-            body: JSON.stringify(payload),
-            headers: { "Content-Type": "application/json" },
+        document
+          .getElementById("storePage")
+          .addEventListener("click", function () {
+            clevertap.event.push("Store_Page");
           });
-        });
+
+        document
+          .getElementById("event_01")
+          .addEventListener("click", function () {
+            const payload = {
+              d: [
+                {
+                  identity: "testxyz12",
+                  type: "event",
+                  evtName: "test_event_01",
+                  evtData: {
+                    date: "$D_1765354800",
+                  },
+                },
+              ],
+            };
+
+            fetch("/send-event", {
+              method: "POST",
+              body: JSON.stringify(payload),
+              headers: { "Content-Type": "application/json" },
+            });
+
+            console.log("test_event_01 sent via backend");
+          });
+      };
     </script>
   </body>
 </html>
