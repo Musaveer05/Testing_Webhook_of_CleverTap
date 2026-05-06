@@ -1,65 +1,28 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <!-- <script type="text/javascript">
-      var clevertap = {
-        event: [],
-        profile: [],
-        account: [],
-        onUserLogin: [],
-        notifications: [],
-        privacy: [],
-      };
-      // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-      clevertap.account.push({ id: "TEST-98R-65Z-6K7Z" }, "eu1");
-      console.log("no region specified sets it to default europe region");
-      clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
-      clevertap.privacy.push({ useIP: true }); //set the flag to true, if the user agrees to share their IP data
-      (function () {
-        var wzrk = document.createElement("script");
-        wzrk.type = "text/javascript";
-        wzrk.async = true;
-        wzrk.src =
-          ("https:" == document.location.protocol
-            ? "https://d2r1yp2w7bby2u.cloudfront.net"
-            : "http://static.clevertap.com") + "/js/clevertap.min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wzrk, s);
-      })();
-    </script> -->
-
-    <script type="text/javascript">
-      var clevertap = {
-        event: [],
-        profile: [],
-        account: [],
-        onUserLogin: [],
-        notifications: [],
-        privacy: [],
-      };
-      // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-      clevertap.account.push({ id: "TEST-8WW-745-K67Z" }, "eu1");
-      console.log("no region specified sets it to default europe region");
-      clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
-      clevertap.privacy.push({ useIP: true }); //set the flag to true, if the user agrees to share their IP data
-      (function () {
-        var wzrk = document.createElement("script");
-        wzrk.type = "text/javascript";
-        wzrk.async = true;
-        wzrk.src =
-          ("https:" == document.location.protocol
-            ? "https://d2r1yp2w7bby2u.cloudfront.net"
-            : "http://static.clevertap.com") + "/js/clevertap.min.js";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(wzrk, s);
-      })();
-    </script>
   </head>
 
+  <script>
+    var clevertap = {
+      onUserLogin: [],
+      event: [],
+      profile: [],
+      account: [],
+      onSuccess: [],
+      notifications: [],
+      privacy: [],
+      session: [],
+    };
+    clevertap.account.push({ id: "8WW-745-K67Z" });
+    clevertap.region = "eu1"; // Set your region: eu1, in1, sg1, aps3, mec1
+  </script>
+
+  <!-- Step 2: Load the SDK AFTER the init block -->
+  <script src="https://cdn.jsdelivr.net/npm/clevertap-web-sdk@1.13.7/clevertap.min.js"></script>
   <body>
     <h1>Hi this is my first demo for CleverTap's SDK Web Integration</h1>
 
@@ -77,14 +40,6 @@
             Identity: "testxyz13",
           },
         });
-
-        // document
-        //   .getElementById("event_01")
-        //   .addEventListener("click", function () {
-        //     clevertap.event.push("test_event_01", {
-        //       date: new Date(),
-        //     });
-        //   });
 
         document
           .getElementById("storePage")
