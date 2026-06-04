@@ -27,8 +27,8 @@ app.post("/send-event", async (req, res) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-CleverTap-Account-Id": "TEST-8WW-745-K67Z",
-      "X-CleverTap-Passcode": "SCW-BAZ-GEEL",
+      "X-CleverTap-Account-Id": "98R-65Z-6K7Z",
+      "X-CleverTap-Passcode": "QYY-SED-OLEL",
     },
     body: JSON.stringify(payload),
   });
